@@ -136,3 +136,62 @@ print(prices[0:])
 [159.54, 37.13, 71.17]
 ```
 #### Indexing list items
+Each item in a list has an assigned indexed value. Remember that Python is a zero indexed language, and the first element in a list is stored at index zero. In this exercise, you will practice subsetting single elements from a list.
+
+Q&A
+- Print the first element in names.
+- Print the second element in names.
+- Using a negative index, print the last element in prices.
+```python 
+# Print the first item in names
+print(names)
+
+# Print the second item in names
+print(names[1])
+
+# Print the last element in prices
+print(prices[-1])
+```
+```
+['Apple Inc', 'Coca-Cola', 'Walmart']
+Coca-Cola
+71.17
+```
+#### Slicing multiple list elements
+
+Slicing operations on a list are used to subset multiple elements from a list. The syntax for list slicing is as follows:
+```python 
+list[start:end]
+```
+Remember, this syntax indicates subsetting all elements from the start and up to but not including the end element.
+
+Also, you can use extended slicing to efficiently select multiple elements from a list. For example, the following command returns all elements from the list except the first (at index 0):
+
+```python 
+x = [1, 2, 3, 4, 5]
+x[1:]
+
+[2, 3, 4, 5]
+```
+Similarly, the following command returns all elements from the list except the last two:
+```python 
+x[:-2]
+
+[1, 2, 3]
+```
+
+Q&A:
+Use list slicing to subset the last two elements from names.
+```python 
+prices = [159.54, 37.13, 71.17]
+
+# Use extended slicing on the list prices
+prices_subset = prices[1:]
+print(prices_subset)
+```
+
+```
+[37.13, 71.17]
+```
+
+### Lists in Lists
