@@ -195,3 +195,31 @@ print(prices_subset)
 ```
 
 ### Lists in Lists
+
+#### Stock up a nested list
+Lists can also contain other lists. In the example shown below, x is a nested list consisting of three lists:
+```python 
+x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+```
+You can use indexing to subset lists within a nested list. To extract the first list within x, you can use the following command:
+```python 
+x[0]
+
+[1, 2, 3]
+```
+Q&A
+names = ['Apple Inc', 'Coca-Cola', 'Walmart']
+prices = [159.54, 37.13, 71.17]
+
+- Create a list named stocks consisting of the lists names and prices, in that order.
+- Use list indexing to subset the list prices from stocks (Remember that prices is the second element in stocks).
+
+```python 
+# Create and print the nested list stocks
+stocks = [['Apple Inc', 'Coca-Cola', 'Walmart'], [159.54, 37.13, 71.17]]
+print(stocks)
+
+# Use list indexing to obtain the list of prices
+print(stocks[1])
+```
+
