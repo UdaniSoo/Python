@@ -223,3 +223,26 @@ print(stocks)
 print(stocks[1])
 ```
 
+### Subset a nested list
+You can also extract an element from the list you extracted. To do this, you use two indices. The first index is the position of the list, and the second index is the position of the element within the list.
+
+For example, if you want to extract 7 from x, you can use the following command:
+```python 
+x = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+x[2][0]
+
+7
+```
+Here the first index 2 refers to the third list in x and the second index 0 refers to the first element of the third list in x.
+
+Q&A:
+stocks = [['Apple Inc', 'Coca-Cola', 'Walmart'], [159.54, 37.13, 71.17]]
+1. From the nested list stocks, subset 'Coca-Cola'.
+```python 
+stocks[0][1]
+```
+2. From the nested list stocks, subset the price for walmart stock.
+```python 
+stocks=[1][2]
+```
+stocks
