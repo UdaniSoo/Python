@@ -245,4 +245,100 @@ stocks[0][1]
 ```python 
 stocks=[1][2]
 ```
-stocks
+
+### List methods and functions
+
+#### Exploring list methods and functions
+Lists methods and functions are useful for analyses. Functions take objects as inputs or are "passed" an object. Methods, in contrast, act on objects. For lists, useful functions include max() and min(), which identify the maximum or minimum value in a list. A useful list method is .sort() which sorts the elements in a list.
+
+##### Methods Vs. Functions
+Methods
+- All methods are functions
+- List methods are a subset of a built-in functions in python.
+- Used on an object
+E.g: Price.sort()
+
+Functions
+- Not all functions are methods
+E.g: type(prices)
+
+Q&A:
+1. Using the method .sort(), sort and print the prices in the list prices.
+```python 
+ Print the sorted list prices
+prices = [159.54, 37.13, 71.17]
+prices.sort();
+print(prices)
+```
+2. Identify the maximum price in prices using the function max().
+```python 
+prices = [159.54, 37.13, 71.17]
+price_max = max(prices)
+print(price_max)
+```
+```
+159.54
+```
+#### Using list methods to add data
+You can use the .append() and .extend() methods to add elements to a list.
+##### append()
+The .append() method increases the length of the list by one, so if you want to add only one element to the list, you can use this method.
+
+```python 
+x = [1, 2, 3]
+x.append(4)
+x
+
+[1, 2, 3, 4]
+```
+##### extend()
+The .extend() method increases the length of the list by the number of elements that are provided to the method, so if you want to add multiple elements to the list, you can use this method.
+```python 
+x = [1, 2, 3]
+x.extend([4,5,6])
+x
+[1,2,3,4,5]
+```
+Q&A
+1. Add a single element, 'Amazon.com', to the names.
+names = ['Apple Inc', 'Coca-Cola', 'Walmart']
+```python 
+# Append a name to the list names
+names.append('Amazon.com')
+print(names)
+```
+2. Add the list more_elements which consists of two elements to names.
+
+```python 
+# Extend list names
+more_elements = ['DowDuPont', 'Alphabet Inc']
+names.extend(more_elements)
+print(names)
+```
+#### Finding stock with maximum price
+Another useful list method is .index(), which returns the index of the element specified. For example, to get the index of 2 in x, you would use:
+```python 
+x = [1, 2, 3, 4]
+x.index(2)
+
+1
+```
+You can then use this result to subset another list, as you will do in this exercise.
+
+Q&A:
+1. Identify the index of max_price in the list prices.
+2. Use this index on the names list to identify the company with maximum stock price.
+
+```python 
+# Do not modify this
+max_price = max(prices)
+
+# Identify index of max price
+max_index = prices.index(max_price)
+
+# Identify the name of the company with max price
+max_stock_name = names[max_index]
+
+# Fill in the blanks 
+print('The largest stock price is associated with ' + max_stock_name + ' and is $' + str(max_price) + '.')
+```
