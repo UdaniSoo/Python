@@ -342,3 +342,130 @@ max_stock_name = names[max_index]
 # Fill in the blanks 
 print('The largest stock price is associated with ' + max_stock_name + ' and is $' + str(max_price) + '.')
 ```
+### Arrays
+#### Installing packages
+```python 
+pip3 install package_name_herepip3 install numpy
+```
+```python 
+pip3 install numpy
+```
+#### Numpy arrays
+##### NumPy and Arrays
+```python 
+import numpy
+my_array = numpy.array([0, 1, 2, 3, 4])
+print(my_array)
+[0, 1, 2, 3, 4]
+print(type(my_array))
+<class 'numpy.ndarray'>
+
+```
+##### Using an alias
+```python 
+import numpy as np
+my_array = np.array([0, 1, 2, 3, 4])
+print(my_array)
+
+[0, 1, 2, 3, 4]
+
+```
+##### Why use an array for financial analysis?
+Arrays can handle very large datasets;
+- Computationally-memory efficient
+- Faster calculations and analysis than lists
+- Diverse functionality (many functions in Python packages)
+
+#### What's the difference?
+##### NUMPY ARRAYS
+
+
+##### Create an array
+You can use the NumPy package to create arrays. NumPy arrays are optimized for numerical analyses and contain only a single data type. To convert a list to an array, you can use the array() function from NumPy.
+```python 
+mport numpy as np
+
+a_list = [1, 2, 3, 4]
+a_list
+
+[1, 2, 3, 4]
+
+an_array = np.array(a_list)
+an_array
+
+array([1, 2, 3, 4])
+```
+Q&A:
+1. Import numpy using the alias np.
+2. Create prices_array and earnings_array arrays from the lists prices and earnings, respectively.
+```python 
+# Import numpy as np
+import numpy as np
+
+# Lists
+prices = [170.12, 93.29, 55.28, 145.30, 171.81, 59.50, 100.50]
+earnings = [9.2, 5.31, 2.41, 5.91, 15.42, 2.51, 6.79]
+
+# NumPy arrays
+prices_array = np.array(prices)
+earnings_array = np.array(earnings)
+```
+```
+[170.12  93.29  55.28 145.3  171.81  59.5  100.5 ]
+[ 9.2   5.31  2.41  5.91 15.42  2.51  6.79]
+```
+##### Elementwise operations on arrays
+Arrays allow for efficient numerical manipulation of its elements. Let's explore element-wise mathematical operations by calculating price to earnings ratio using two arrays, prices_array and earnings_array from the previous exercise.
+
+This price to earnings ratio, or PE ratio, is a financial indicator of the dollar amount an investor can expect to invest in a company in order to receive one dollar of that company’s earnings.
+
+Q&A:
+1. import numpy as np.
+2. Create pe_array by dividing prices_array by earnings_array.
+
+```python 
+# Import numpy as np
+import numpy as np
+
+# Create PE ratio array
+pe_array = prices_array/ earnings_array
+
+# Print pe_array
+print(pe_array)
+
+```
+
+##### Subsetting elements from an array
+
+Subsetting arrays is similar to subsetting lists.
+
+Q&A:
+1. Subset the first three elements from prices_array.
+
+```python 
+# Subset the first three elements
+prices_subset_1 = prices_array[0:3]
+print(prices_subset_1)
+```
+
+2. Subset the last three elements from the prices_array using negative index slicing.
+
+```python 
+# Subset last three elements 
+prices_subset_2 = prices_array[-3:]
+print(prices_subset_2)
+```
+3. Subset every third element from the prices_array using step slicing.
+
+```python 
+# Subset every third element
+prices_subset_3 = prices_array[0:7:3]
+print(prices_subset_3)
+```
+#### Two dimensional arrays
+
+##### Creating a 2D array
+Multi-dimensional arrays can be useful for several tasks. In finance, for example, a 2D array may be used to store the prices and earnings for various companies. 
+
+Q&A:
+1. Create a two dimensional array of prices and earnings (in that order) and assign it to stock_array.
