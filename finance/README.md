@@ -469,3 +469,117 @@ Multi-dimensional arrays can be useful for several tasks. In finance, for exampl
 
 Q&A:
 1. Create a two dimensional array of prices and earnings (in that order) and assign it to stock_array.
+2. Print the shape of stock_array.
+
+```python 
+# Create a 2D array of prices and earnings
+stock_array = np.array([prices,earnings])
+print(stock_array)
+
+# Print the shape of stock_array
+print(stock_array.shape)
+
+# Print the size of stock_array
+print(stock_array.size)
+```
+
+Q&A:
+1. Transpose stock_array and assign the result to stock_array_transposed.
+2. Print the size of stock_array_transposed.
+Take Hint (-15 XP)
+
+```python 
+
+```
+
+```
+[[170.12   9.2 ]
+ [ 93.29   5.31]
+ [ 55.28   2.41]
+ [145.3    5.91]
+ [171.81  15.42]
+ [ 59.5    2.51]
+ [100.5    6.79]]
+```
+
+##### Subsetting 2D arrays
+Subsetting 2D arrays is similar to subsetting nested lists. In a 2D array, the indexing or slicing must be specific to the dimension of the array:
+```python 
+array[row_index, column_index]
+```
+Q&A:
+1. Extract the first column from stock_array_transposed and assign it to prices.
+
+```python 
+# Subset prices from stock_array_transposed
+prices = stock_array_transposed[:,0]
+print(prices)
+```
+```
+[170.12  93.29  55.28 145.3  171.81  59.5  100.5 ]
+```
+2. Extract the second column from stock_array_transposed and assign it to earnings.
+
+```python 
+# Subset earnings from stock_array_transposed
+earnings = stock_array_transposed[:,1]
+print(earnings)
+```
+```
+[ 9.2   5.31  2.41  5.91 15.42  2.51  6.79]
+```
+3. Subset the price and earning of the first company (row 0) from stock_array_transposed and assign it to company_1.
+
+```python 
+# Subset the price and earning for first company
+company_1 = stock_array_transposed[0,]
+print(company_1)
+```
+```
+ [170.12   9.2 ]
+```
+
+#### Calculating array stats
+
+Not only can you perform elementwise calculations on NumPy arrays, you can also calculate summary stats such as mean and standard deviation of arrays using functions from NumPy.
+
+Q&A:
+1. Calculate the mean of prices.
+
+```python 
+ # Calculate the mean 
+prices_mean = np.mean(prices)
+print(prices_mean)
+```
+
+```
+113.6857142857143
+```
+2. Calculate the standard deviation of prices.
+```python 
+# Calculate the standard deviation 
+prices_std = np.std(prices)
+print(prices_std)
+```
+
+```
+45.51277932221513
+```
+#### Generating a sequence of numbers
+You may want to create an array of a range of numbers (e.g., 1 to 10) without having to type in every single number. The NumPy function arange() is an efficient way to create numeric arrays of a range of numbers. The arguments for arange() include the start, stop, and step interval as shown below:
+
+np.arange(start, stop, step)
+numpy is imported as np.
+```python 
+# Create and print company IDs
+company_ids = np.arange(1, 8, 1)
+print(company_ids)
+
+# Use array slicing to select specific company IDs
+company_ids_odd = np.arange(1,8, 2)
+print(company_ids_odd)
+```
+```
+[1 2 3 4 5 6 7]
+[1 3 5 7]
+```
