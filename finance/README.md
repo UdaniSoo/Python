@@ -570,6 +570,11 @@ You may want to create an array of a range of numbers (e.g., 1 to 10) without ha
 
 np.arange(start, stop, step)
 numpy is imported as np.
+
+Q&A
+1. Create an array company_ids containing the numbers 1 through 7 (inclusive).
+2. Create an array company_ids_odd containing only the odd numbers from 1 through 7 (inclusive).
+
 ```python 
 # Create and print company IDs
 company_ids = np.arange(1, 8, 1)
