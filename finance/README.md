@@ -588,3 +588,138 @@ print(company_ids_odd)
 [1 2 3 4 5 6 7]
 [1 3 5 7]
 ```
+#### Using arrays for analysis
+
+##### Boolean arrays
+Who's above average?
+
+Boolean arrays can be a very powerful way to subset arrays. In this exercise, you will identify the prices that are greater than average from a list of prices.
+
+Q&A:
+1. Find elements in prices that are greater than price_mean and assign the boolean result to boolean_array.
+2. Subset prices using boolean_array and assign the result to above_avg.
+
+```python 
+# Find the mean
+price_mean = np.mean(prices)
+
+# Create boolean array
+boolean_array = (prices>price_mean)
+print(boolean_array)
+
+# Select prices that are greater than average
+above_avg = prices[boolean_array]
+print(above_avg)
+```
+
+```
+    [ True False False  True  True False False]
+    [170.12 145.3  171.81]
+```
+Q&A:
+Who's in health care?
+In this exercise, you are provided the names of companies with their associated sector, and your goal is to find all companies that are associated with health care sector.
+
+numpy is imported as np and the arrays names and sectors are available in your workspace.
+
+```python 
+# Create boolean array
+boolean_array = (sectors == 'Health Care')
+print(boolean_array)
+
+# Print only health care companies
+health_care = names[boolean_array]
+print(health_care)
+```
+
+```
+[False  True  True False  True]
+['Abbvie Inc' 'Abbott Laboratories' 'Allergan Plc']
+```
+
+#### Importing matplotlib and pyplot
+Pyplot is a collection of functions in the popular visualization package Matplotlib. Its functions manipulate elements of a figure, such as creating a figure, creating a plotting area, plotting lines, adding plot labels, etc.
+
+Let's use the plot() function from pyplot to create a dashed line graph showing the growth of a company's stock. Remember, you can change the color of the line by adding the argument color and the linestlye by adding the argument linestyle.
+
+Two lists, days (representing the days since the company became public), and prices (representing the price of the stock corresponding to that day) are available in your workspace.
+
+Q&A:
+1. Selectively import the pyplot module of matplotlib as plt.
+2. Plot days on the x-axis and prices on the y-axis as a red colored dashed line.
+3. Display the plot with the show() function.
+
+```python 
+# Import matplotlib.pyplot with the alias plt
+import matplotlib.pyplot as plt
+
+# Plot the price of stock over time
+plt.plot(days, prices, color="red", linestyle="--")
+
+# Display the plot
+plt.show()
+```
+
+![svg](images/Creating_plot_Charts.svg)
+
+##### Adding axis labels and titles
+It is important to add labels to your plot so it's clear to other people what information it is trying to convey. 
+In this exercise, you will add labels to the plot you created in the last one.
+Q&A:
+Add the following labels:
+1. x-axis: 'Days'
+2. y-axis: 'Prices, $'
+3. title: 'Company Stock Prices Over Time'
+
+```python 
+import matplotlib.pyplot as plt
+
+# Plot price as a function of time
+plt.plot(days, prices, color="red", linestyle="--")
+
+# Add x and y labels
+plt.xlabel('Days')
+plt.ylabel('Prices, $')
+```
+![svg](images/Adding_Labels.svg)
+
+##### Multiple lines on the same plot
+You can also plot multiple datasets as different lines. To do so, you can use the plot() function multiple times. Let's plot the stocks of two companies over time.
+
+Q&A:
+1. Plot prices1 data with a red line, and prices2 data with a green line.
+
+```python 
+# Plot two lines of varying colors 
+plt.plot(days, prices1, color='red')
+plt.plot(days, prices2, color='green')
+
+# Add labels
+plt.xlabel('Days')
+plt.ylabel('Prices, $')
+plt.title('Stock Prices Over Time')
+plt.show()
+```
+
+![svg](images/Multi_plot.svg)
+
+#### Scatterplots
+The pyplot module can also be used to make other types of plots, like scatterplots. Let's make a scatterplot of the company's stock prices over time.
+
+Two lists, days and prices are available in your workspace.
+
+Q&A:
+1. Draw a scatterplot with days on the x-axis and prices on the y-axis with green markers.
+2. Display the plot with the show() function.
+
+```python 
+# Import pyplot as plt
+import matplotlib.pyplot as plt
+
+# Plot price as a function of time
+plt.scatter(days, prices, color='green', s=0.1)
+
+# Show plot
+plt.show()
+```
+![svg](images/Scatterplots.svg)
