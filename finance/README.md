@@ -723,3 +723,304 @@ plt.scatter(days, prices, color='green', s=0.1)
 plt.show()
 ```
 ![svg](images/Scatterplots.svg)
+
+#### Histograms
+##### Is data normally distributed?
+A histogram is an efficient visual tool to examine whether your data is normally distributed, or centered around the mean.
+
+matplotlib.pyplot is imported as plt and the array prices is available in your workspace.
+
+Q&A:
+1. Plot a histogram of prices with 100 bins to confirm that the data is normally distributed.
+2. Display the plot.
+
+```python 
+# Plot histogram 
+plt.hist(prices, bins=100)
+
+# Display plot
+plt.show()
+```
+![svg](images/Plot_a_histogram.svg)
+
+##### Comparing two histograms
+Histograms can also be used to compare the distributions of multiple datasets. In this exercise, you will compare the performance of two different stocks to find out which stock has the most fluctuation.
+
+Q&A:
+1. Plot the histogram of stock_A with 100 bins and a transparency of 0.4.
+2. Plot the histogram of stock_B with 100 bins and a transparency of 0.4.
+
+```python 
+# Plot histogram of stocks_A
+plt.hist(stock_A, bins=100, alpha=0.4)
+
+# Plot histogram of stocks_B 
+plt.hist(stock_B, bins=100, alpha=0.4)
+
+# Display plot
+plt.show()
+```
+
+![svg](images/Comparing_histograms.svg)
+
+##### Adding a legend
+A legend can be useful when plotting multiple datasets to identify which plot is associated with a specific dataset. 
+To add a legend, you can use the label argument. To display the legend on the plot, you can use the function plt.legend().
+
+Q&A:
+1. Plot histograms for stock_A and stock_B and add labels to each plot ('Stock A' and 'Stock B').
+2. Display the legend and the plot.
+
+```python 
+# Plot stock_A and stock_B histograms
+plt.hist(stock_A, bins=100, alpha=0.4, label='Stock A')
+plt.hist(stock_B, bins=100, alpha=0.4, label='Stock B')
+
+# Add the legend
+plt.legend()
+
+# Display the plot
+plt.show()
+```
+![svg](images/Adding_a_legend.svg)
+
+### Case studies
+#### Lists
+Stocks in the S&P 100 are selected to represent sector balance and market capitalization. To begin, let's take a look at what data we have associated with S&P companies.
+
+Four lists, names, prices, earnings, and sectors, are available in your workspace.
+
+Q&A:
+1. Print the first four items in names.
+2. Print the name, price, earning, and sector associated with the last company in the lists.
+
+```python 
+# First four items of names
+print(names[0:4])
+
+# Print information on last company
+print(names[-1])
+print(prices[-1])
+print(earnings[-1])
+print(sectors[-1])
+```
+
+```
+['Apple Inc', 'Abbvie Inc', 'Abbott Laboratories', 'Accenture Plc']
+Exxon Mobil Corp
+80.31
+3.56
+Energy
+```
+#### Arrays and NumPy
+NumPy is a scientific computing package in Python that helps you to work with arrays. Let's use array operations to calculate price to earning ratios of the S&P 100 stocks.
+
+The S&P 100 data is available as the lists: prices (stock prices per share) and earnings (earnings per share).
+
+Q&A:
+1. Import the numpy as np.
+2. Convert the prices and earnings lists to arrays, prices_array and earnings_array, respectively.
+3. Calculate the price to earnings ratio as pe.
+
+```python 
+# Import numpy as np
+import numpy as np
+
+# Convert lists to arrays
+prices_array = np.array(prices)
+earnings_array = np.array(earnings)
+
+# Calculate P/E ratio 
+pe = prices_array/ earnings_array
+print(pe)
+```
+```
+[  18.49130435   17.56873823   22.93775934   24.58544839   11.14202335
+   23.70517928   14.8011782    13.42845787  285.99492386   17.99233716
+   27.18358974   15.25714286   14.44742937   15.19596542   21.99767981
+   20.43243243   28.81875994   13.8477842    24.75135135   16.075
+  215.0310559    25.14285714   17.88613861   11.64379947 2494.5
+   29.41924399   16.76497696   12.29071804   32.16806723   24.02313625
+   18.07368421   19.91235955   19.43169399   23.31007752   16.66129032
+    7.20833333   34.51637765   18.2829555    15.84375      16.21875
+   19.73187686   14.44354839    7.47703549    7.22778675   34.09708738
+   34.6196853    12.3984375    56.94520548   24.44396552   21.30071942
+   11.08345534   14.11320755   19.40336134   14.20461095   22.63764045
+   26.21538462   24.12698413   20.28606357   24.60141509   18.76267281
+   34.78654292   26.0953125    20.72682927   16.95522388    9.97115385
+   25.97653631   21.04746835   21.37251356   13.81491003   13.5900277
+   24.40532544   23.34332834   25.30212766   19.20392157  194.77142857
+   23.66997985   22.55859375   14.152        22.19346734   23.01781737
+   54.67857143   17.67989418   24.36772487   27.45410628   47.69767442
+   18.58909091   26.32231405   11.80546075   11.71805274   14.62376238
+   24.28325123   21.84895833   20.4204947    18.92976589   15.39465875
+   17.68126888   31.68678161   12.22666667   13.7745098    13.04830918
+   22.03669725   22.55898876]
+```
+
+#### Filtering arrays
+In this lesson, you will focus on two sectors:
+
+Information Technology
+Consumer Staples
+numpy is imported as np and S&P 100 data is stored as arrays: names, sectors, and pe (price to earnings ratio).
+
+Q&A:
+1. Create a boolean array to determine which elements in sectors are 'Information Technology'.
+2. Use the boolean array to subset names and pe in the Information Technology sector.
+
+```python 
+# Create boolean array 
+boolean_array = (sectors== 'Information Technology')
+print(boolean_array)
+
+# Subset sector-specific data
+it_names = names[boolean_array]
+it_pe = pe[boolean_array]
+```
+
+```
+['Apple Inc' 'Accenture Plc' 'Cisco Systems Inc' 'Facebook Inc'
+ 'Alphabet Class C' 'Alphabet Class A' 'International Business Machines'
+ 'Intel Corp' 'Mastercard Inc' 'Microsoft Corp' 'Oracle Corp'
+ 'Paypal Holdings' 'Qualcomm Inc' 'Texas Instruments' 'Visa Inc']
+[18.49130435 24.58544839 16.76497696 34.51637765 34.09708738 34.6196853
+ 11.08345534 14.11320755 34.78654292 24.40532544 19.20392157 54.67857143
+ 17.67989418 24.28325123 31.68678161]
+```
+
+Q&A:
+1. Create a boolean array to determine which elements in sectors are 'Consumer Staples'.
+2. Use the boolean array to subset names and pe in the Consumer Staples sector.
+
+```python 
+# Create boolean array 
+boolean_array = sectors=='Consumer Staples'
+
+# Subset sector-specific data
+cs_names = names[boolean_array]
+cs_pe = pe[boolean_array]
+```
+
+```
+['Colgate-Palmolive Company' 'Costco Wholesale' 'CVS Corp'
+ 'Kraft Heinz Co' 'Coca-Cola Company' 'Mondelez Intl Cmn A' 'Altria Group'
+ 'Pepsico Inc' 'Procter & Gamble Company'
+ 'Philip Morris International Inc' 'Walgreens Boots Alliance'
+ 'Wal-Mart Stores']
+[25.14285714 29.41924399 12.29071804 22.63764045 24.12698413 20.72682927
+ 21.04746835 22.55859375 22.19346734 23.01781737 13.7745098  22.03669725]
+```
+
+#### Summarizing sector data
+In this exercise, you will calculate the mean and standard deviation of P/E ratios for Information Technology and Consumer Staples sectors. numpy is imported as np and the it_pe and cs_pe arrays from the previous exercise are available in your workspace.
+1. Calculate the mean and standard deviation of the P/E ratios (it_pe) for the Industrial Technology sector.
+
+```python 
+# Calculate mean and standard deviation
+it_pe_mean = np.mean(it_pe)
+it_pe_std = np.std(it_pe)
+
+print(it_pe_mean)
+print(it_pe_std)
+```
+```
+26.333055420408595
+10.8661467926753
+```
+2. Calculate the mean and standard deviation of the P/E ratios (cs_pe) for the Consumer Staples sector.
+
+```python 
+# Calculate mean and standard deviation
+cs_pe_mean = np.mean(cs_pe)
+cs_pe_std = np.std(cs_pe)
+
+print(cs_pe_mean)
+print(cs_pe_std)
+```
+```
+    26.333055420408595
+    10.8661467926753
+```
+#### Plot P/E ratios
+Let's take a closer look at the P/E ratios using a scatter plot for each company in these two sectors.
+
+The arrays it_pe and cs_pe from the previous exercise are available in your workspace. Also, each company name has been assigned a numeric ID contained in the arrays it_id and cs_id.
+
+Q&A:
+1. Draw a scatter plot of it_pe ratios with red markers and 'IT' label.
+2. On the same plot, add the cs_pe ratios with green markers and 'CS' label.
+3. Add a legend to this plot.
+
+```python 
+import matplotlib.pyplot as plt
+
+# Make a scatterplot
+plt.scatter(it_id, it_pe, color='red', label='IT')
+plt.scatter(cs_id, cs_pe, color='red', label='CS')
+
+# Add legend
+plt.legend()
+
+# Add labels
+plt.xlabel('Company ID')
+plt.ylabel('P/E Ratio')
+plt.show()
+```
+
+![svg](images/Plot_PE_ratios.svg)
+
+#### Visualization
+##### Histogram of P/E ratios
+
+To visualize and understand the distribution of the P/E ratios in the IT sector, you can use a histogram.
+
+The array it_pe from the previous exercise is available in your workspace.
+
+Q&A:
+1. Selectively import the pyplot module of matplotlib as plt.
+2. Plot a histogram of it_pe with 8 bins.
+Add the x-label as 'P/E ratio' and y-label as 'Frequency'.
+3. Display the plot.
+```python 
+# Import matplotlib.pyplot with the alias plt
+import matplotlib.pyplot as plt
+
+# Plot histogram 
+plt.hist(it_pe, bins=8)
+
+# Add x-label
+plt.xlabel('P/E ratio')
+
+# Add y-label
+plt.ylabel('Frequency')
+
+# Show plot
+plt.show()
+```
+![svg](images/Histogram_PE_ratios.svg)
+
+#### Name the outlier
+
+You've identified that a company in the Industrial Technology sector has a P/E ratio of greater than 50. Let's identify this company.
+
+numpy is imported as np, and arrays it_pe (P/E ratios of Industrial Technology companies) and it_names (names of Industrial Technology companies) are available in your workspace.
+
+Q&A:
+1. Identify the P/E ratio greater than 50 and assign it to outlier_price.
+2. Identify the company with P/E ratio greater than 50 and assign it to outlier_name.
+
+```python 
+# Identify P/E ratio within it_pe that is > 50
+outlier_price = it_pe[it_pe > 50]
+
+# Identify the company with PE ratio > 50
+outlier_name = it_names[it_pe>50]
+
+# Display results
+print("In 2017, " + str(outlier_name[0]) + " had an abnormally high P/E ratio of " + str(round(outlier_price[0], 2)) + ".")
+```
+
+```
+In 2017, Paypal Holdings had an abnormally high P/E ratio of 54.68.
+```
